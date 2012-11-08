@@ -31,7 +31,7 @@
 
 <form method="post" class="productform">
 	<input type="hidden" name="products_id" value="<?php echo $product_info['products_id']; ?>" />
-	
+	<input type="hidden" name="quantity" value="1" />
 	<div style="border-radius:10px; border:1px solid #999; background:#fff; margin-top:4px; padding:5px;">
     <table style="margin-top:10px;">
 	<tr>
