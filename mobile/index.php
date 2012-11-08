@@ -32,7 +32,7 @@ $listing_query = tep_db_query($listing_split->sql_query);
 		<form method="post" action="cart/index.php?action=add_product" class="productform">
 			<input type="hidden" name="products_id" value="<?php echo $listing['products_id']; ?>"/>
 			<input type="hidden" name="cart_quantity" value="1" maxlength="6" size="4">
-
+			<input type="hidden" name="quantity" value="1" maxlength="6" size="4">
 			<table align="center" style="margin-left:auto; margin-right:auto;" width="100"><tr><td style="border:none; vertical-align:middle">
 					<?php if($listing['products_price'] != $listing['final_price']) { ?>
 					<span class="listprice">
