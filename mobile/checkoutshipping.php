@@ -140,7 +140,8 @@ if (!tep_session_is_registered('shipping') || ( tep_session_is_registered('shipp
 
 require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_SHIPPING);
 ?>
-<?php include 'header.php'; ?>
+<?php include 'header_cart.php'; ?>
+
 <style>
     table.reviewaddresses td{
         text-align:left;
@@ -160,13 +161,12 @@ require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_SHIPPING);
     .moduleRow td{
         cursor:pointer;
     }
-    .moduleRow.active td{
-        background-color: #8BB4AD;
-    }
+    /*.moduleRow.active td{
+        background-color: #ecf2f9; 
+    } */
     .email{
         display: block;
         text-overflow: ellipsis;
-        width: 200px;
         overflow: hidden;
     }
 </style>
@@ -209,34 +209,38 @@ require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_SHIPPING);
 
     });
 </script>
+
 <form id="cartform" method="post" action="checkout_process.php" data-ajax="false">
     <div id="main-page">
-        <div id="content">
 
-            <h3><?php echo $_['Addresses'] ?></h3>
-            <div id="checkoutaddresses">
-                <ul data-role="listview" data-inset="true" class="products ui-listview ui-listview-inset ui-corner-all ui-shadow" style="margin: 4px; width: 300px;">
+        <div id="subhead">
+            <h3 class="page"><?php echo BOX_HEADING_REVIEWS; ?></h3>
+            <div class="logo user"></div>
+        </div> 
+               
+            <div id="checkoutaddresses" style="margin:10px 15px;">
+                <ul data-role="listview" data-inset="true" class="products ui-listview ui-listview-inset ui-corner-all ui-shadow" >
                     <li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined ui-corner-top">
                         <?php echo $_['Billing Address'] ?>
                     </li>
                     <li style="text-align:center; padding:2px;" class="ui-li ui-li-static ui-body-c">
-                        <table class="reviewaddresses">
+                        <table class="reviewaddresses" width="100%">
                             <tbody><tr>
-                                    <td><?php echo $_['Name'] ?></td><td><?php echo  stripslashes($_SESSION['billto']['firstname'] . " " . $_SESSION['billto']['lastname']) ?></td>
+                                    <td width="20%"><?php echo $_['Name'] ?>:</td><td><?php echo  stripslashes($_SESSION['billto']['firstname'] . " " . $_SESSION['billto']['lastname']) ?></td>
                                 </tr>
 
                                 <tr>
-                                    <td><?php echo $_['Address'] ?></td>
+                                    <td><?php echo $_['Address'] ?>:</td>
                                     <td>
 <?php echo stripslashes($_SESSION['billto']['street_address']) ?><br>
-<?php echo stripslashes($_SESSION['billto']['suburb']) ?><br>
+<?php if ($_SESSION['billto']['suburb']) echo stripslashes($_SESSION['billto']['suburb']).'<br>'; ?>
 <?php echo stripslashes($_SESSION['billto']['city']) ?>, <?php echo stripslashes($_SESSION['billto']['postcode']) ?>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td><?php echo $_['Email'] ?></td>
-                                    <td><span class="email" title="<?php echo $order->customer['email_address'] ?>"><?php echo  stripslashes($order->customer['email_address']) ?></span></td>
+                                    <td><span class="email" style="text-overflow:ellipsis;width:80%" title="<?php echo $order->customer['email_address'] ?>"><?php echo  stripslashes($order->customer['email_address']) ?></span></td>
                                 </tr>
                             </tbody></table>
                     </li>
@@ -244,17 +248,17 @@ require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_SHIPPING);
                           <?php echo $_['Shipping Address'] ?>
                     </li>
                     <li style="text-align:center; padding:2px;" class="ui-li ui-li-static ui-body-c ui-corner-bottom">
-                        <table class="reviewaddresses">
+                        <table class="reviewaddresses" width="100%">
                             <tbody>
                                 <tr>
-                                    <td><?php echo $_['Name'] ?></td><td><?php echo stripslashes($_SESSION['sendto']['firstname'] . " " . $_SESSION['sendto']['lastname']) ?></td>
+                                    <td width="20%"><?php echo $_['Name'] ?>:</td><td><?php echo stripslashes($_SESSION['sendto']['firstname'] . " " . $_SESSION['sendto']['lastname']) ?></td>
                                 </tr>
 
                                 <tr>
-                                    <td><?php echo $_['Address'] ?></td>
+                                    <td><?php echo $_['Address'] ?>:</td>
                                     <td>
 <?php echo stripslashes($_SESSION['sendto']['street_address']) ?><br>
-<?php echo stripslashes($_SESSION['sendto']['suburb']) ?><br>
+<?php if($_SESSION['sendto']['suburb']) echo stripslashes($_SESSION['sendto']['suburb']).'<br>'; ?>
 <?php echo stripslashes($_SESSION['sendto']['city']) ?>, <?php echo stripslashes($_SESSION['sendto']['postcode']) ?>
                                     </td>
                                 </tr>
@@ -269,9 +273,9 @@ require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_SHIPPING);
 
 
 
-        </div>
 
-        <div data-role="footer" class="ui-body ui-body-a ui-corner-all" data-theme="c" style="width:80%">
+
+        <div data-role="content"  class="ui-corner-all ui-corner-all ui-shadow" data-theme="c" style="margin:15px;">
             <fieldset>
                 <div data-role="fieldcontain">
                     <table border="0" width="100%" cellspacing="1" cellpadding="2" class="infoBox">
@@ -322,42 +326,33 @@ require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_SHIPPING);
                                                 <td><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
                                                 <td colspan="2">
 
-                                                    <table border="0" width="100%" cellspacing="0" cellpadding="2">
-                                                        <tr>
-                                                            <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-                                                            <td class="main" colspan="3"><b><?php echo $quotes[$i]['module']; ?></b>&nbsp;<?php
-                                                        if (isset($quotes[$i]['icon']) && tep_not_null($quotes[$i]['icon'])) {
-                                                            echo $quotes[$i]['icon'];
-                                                        }
-                                            ?></td>
-                                                            <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-                                                        </tr>
+       <table border="0" width="100%" cellspacing="0" cellpadding="2">                                                                                                               
         <?php
-        if (isset($quotes[$i]['error'])) {
-            ?>
+            if (isset($quotes[$i]['error'])) {
+        ?>
                                                             <tr>
                                                                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
                                                                 <td class="main" colspan="3"><?php echo $quotes[$i]['error']; ?></td>
                                                                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
                                                             </tr>
-                                                            <?php
-                                                        } else {
-                                                            for ($j = 0, $n2 = sizeof($quotes[$i]['methods']); $j < $n2; $j++) {
+        <?php
+        } else {
+            for ($j = 0, $n2 = sizeof($quotes[$i]['methods']); $j < $n2; $j++) {
 // set the radio button to be checked if it is the method chosen
-                                                                $checked = (($quotes[$i]['id'] . '_' . $quotes[$i]['methods'][$j]['id'] == $shipping['id']) ? true : false);
+                 $checked = (($quotes[$i]['id'] . '_' . $quotes[$i]['methods'][$j]['id'] == $shipping['id']) ? true : false);
 
-                                                                if (($checked == true) || ($n == 1 && $n2 == 1)) {
+                 if (($checked == true) || ($n == 1 && $n2 == 1)) {
                                                                     echo '                  <tr id="defaultSelected" class="moduleRow moduleRowSelected" >' . "\n";
-                                                                } else {
+                 } else {
                                                                     echo '                  <tr class="moduleRow" >' . "\n";
                                                                 }
-                                                                ?>
-                                                                <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-                                                                <td class="main" width="75%"><?php echo $quotes[$i]['methods'][$j]['title']; ?></td>
+         ?>
+          <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
+          <td class="main" width="75%"><b><?php echo $quotes[$i]['module']; ?></b> - <?php echo $quotes[$i]['methods'][$j]['title']; ?></td>
                                                                     <?php
                                                                     if (($n > 1) || ($n2 > 1)) {
                                                                         ?>
-                                                                    <td class="main"><?php echo $currencies->format(tep_add_tax($quotes[$i]['methods'][$j]['cost'], (isset($quotes[$i]['tax']) ? $quotes[$i]['tax'] : 0))); ?></td>
+                                                                    <td class="main" align="right"><?php echo $currencies->format(tep_add_tax($quotes[$i]['methods'][$j]['cost'], (isset($quotes[$i]['tax']) ? $quotes[$i]['tax'] : 0))); ?></td>
                                                                     <td class="main" align="right">
                                                                     <?php echo tep_draw_radio_field('shipping', $quotes[$i]['id'] . '_' . $quotes[$i]['methods'][$j]['id'], $checked, "id=\"" . $quotes[$i]['id'] . '_' . $quotes[$i]['methods'][$j]['id'] . "\" style='display:none'"); ?>
                                                                     </td>
@@ -392,10 +387,12 @@ require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_SHIPPING);
                     </select>
                 </div>
                 <div data-role="fieldcontain">
-                    <table>
+                    <table width='100%'>
                         <?php
                         for ($i = 0, $n = sizeof($order->products); $i < $n; $i++) {
                             echo '          <tr>' . "\n" .
+                            '<td>'.tep_draw_separator('pixel_trans.gif', '10', '1') .
+                            '</td>'.
                             '            <td class="main" align="right" valign="top" width="30">' . $order->products[$i]['qty'] . '&nbsp;x</td>' . "\n" .
                             '            <td class="main" valign="top">' . $order->products[$i]['name'];
 
@@ -414,17 +411,20 @@ require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_SHIPPING);
                             if (sizeof($order->info['tax_groups']) > 1)
                                 echo '            <td class="main" valign="top" align="right">' . tep_display_tax_value($order->products[$i]['tax']) . '%</td>' . "\n";
 
-                            echo '            <td class="main" align="right" valign="top">' . $currencies->display_price($order->products[$i]['final_price'], $order->products[$i]['tax'], $order->products[$i]['qty']) . '</td>' . "\n" .
+                            echo '            <td class="main" align="right" style="padding-right:42px" valign="top">' . $currencies->display_price($order->products[$i]['final_price'], $order->products[$i]['tax'], $order->products[$i]['qty']) . '</td>' . "\n" .
                             '          </tr>' . "\n";
                         }
                         ?>
                     </table>
                 </div>
+                <div align="right" style="padding-right:42px"><?php echo $_['Total'] ?>: <span class="total"><?php echo $order->info['total'] ?></span></div>
+                
                 <button type="submit" data-theme="e" value="submit-value" data-role="button" class="ui-body"><?php echo $_['Pay Now'] ?></button>
-                <?php echo $_['Total'] ?>: <span class="total"><?php echo $order->info['total'] ?></span>
+                
             </fieldset>
 
         </div>
     </div>
 </form>
+
 <?php include 'footer.php'; ?>

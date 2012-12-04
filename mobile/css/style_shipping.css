@@ -1,0 +1,99 @@
+/* Shipping Methods page */
+
+.segment {
+position: relative;
+top: -5px;
+left: -2px;
+width: 100%;
+height: 9px;
+border-top: 2px solid #D8D3A4;
+border-left: 2px solid #D8D3A4;
+border-right: 2px solid #D8D3A4;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+-webkit-border-top-left-radius: 15px;
+-webkit-border-top-right-radius: 15px;
+-moz-border-radius-topleft: 15px;
+-moz-border-radius-topright: 15px;
+background-color: #ECF2F9;
+}
+
+#subhead {
+overflow: hidden;
+border-bottom: 1px solid #7C9BB9;
+margin-right: 15px;
+margin-left: 15px;
+margin-top: -10px;
+height: 25px;
+}
+
+#subhead h3 {
+float: left;
+margin: 2px 0 8px;
+color: #C78137;
+font-size: 14px;
+}
+
+#subhead .user {
+width: 88px;
+background-position: -124px -45px;
+}
+
+#subhead .logo, #exit .nav{
+background-image: url('https://www.sandbox.paypal.com/WEBSCR-640-20121028-1/Mobile/i/sprite-hd.png') !important;
+-webkit-background-size: 318px 940px;
+background-size: 318px 940px;
+-moz-background-size: 318px 940px;
+background-repeat: no-repeat !important;
+}
+#subhead .logo {
+position: absolute;
+right: 15px;
+height: 19px;
+margin-top: 1px;
+}
+
+#checkouthead {
+text-align: center;
+padding-top: 8px;
+padding-bottom: 12px;
+background-color: #F2F0E1;
+background-image: -webkit-gradient(linear,0 0,0 100%,color-stop(0,white),color-stop(1,#F2F0E1));
+background-image: -moz-linear-gradient(top, white, #F2F0E1 100%);
+background-image: linear-gradient(180deg, white, #F2F0E1 100%);
+}
+
+.moduleRow.active td {
+
+background-color: #f4e3b5;
+background-image: -webkit-gradient(linear,0 0,0 100%,color-stop(0,#f4e3b5),color-stop(1,#f4e3b5));
+background-image: -moz-linear-gradient(top, #f4e3b5, #f4e3b5 100%);
+background-image: linear-gradient(180deg, #f4e3b5, #f4e3b5);
+}
+   
+#merchant {
+width: 80%;
+margin-left: 10%;
+text-align: center;
+min-height: 20px;
+}  
+
+#exit {
+width: 10%;
+margin-left: 20px;
+}
+
+#exit .nav {
+font-size: 12px;
+color: #666;
+padding: 4px 3px;
+border: 0;
+position: absolute;
+top: 10px;
+right: 14px;
+background-position: right -38px;
+width: 22px;
+height: 21px;
+background-color: transparent;
+}
+ 
