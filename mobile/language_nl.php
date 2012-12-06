@@ -1,10 +1,10 @@
 <?php
 $_['Products'] = "Producten";
-$_['featuredproduct'] = "Uitgelichte producten";
+$_['Featured Products'] = $_['featuredproduct'] = "Uitgelichte producten";
 $_['oops'] = "Oeps";
 $_['Total'] = "Totaal";
 $_['Sorry the page you visited does not exist'] = "De pagina die wilde bezoeken bestaat helaas niet";
-$_['cart'] = "Winkelwagentje";
+$_['Cart'] = $_['cart'] = "Winkelwagentje";
 $_['name'] = $_['Name'] = "Naam";
 $_['price']= "Prijs";
 $_['delete'] = "Verwijderen";
