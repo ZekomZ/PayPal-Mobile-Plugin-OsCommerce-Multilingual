@@ -1,4 +1,178 @@
-<h4><a href="#english"><img src="https://raw.github.com/ontech/PayPal-Mobile-Plugin-Zen-Cart-Multilingual/master/mobile/images/flags/gb.png" alt="English" /> English</a> | <a href="#french"><img src="https://raw.github.com/ontech/PayPal-Mobile-Plugin-Zen-Cart-Multilingual/master/mobile/images/flags/fr.png" alt="Français" /> Français</a></h4>
+<h4>
+  <a href="#english"><img src="https://raw.github.com/ontech/PayPal-Mobile-Plugin-Zen-Cart-Multilingual/master/mobile/images/flags/gb.png" alt="English" /> 
+    English
+  </a> &nbsp;
+  <a href="#french"><img src="https://raw.github.com/ontech/PayPal-Mobile-Plugin-Zen-Cart-Multilingual/master/mobile/images/flags/fr.png" alt="Français" />
+    Français
+  </a>  &nbsp;
+  <a href="#italian"><img src="https://raw.github.com/ontech/PayPal-Mobile-Plugin-Zen-Cart-Multilingual/master/mobile/images/flags/it.png" alt="Italian" />
+    Italian
+  </a>  &nbsp;
+  <a href="#spanish"><img src="https://raw.github.com/ontech/PayPal-Mobile-Plugin-Zen-Cart-Multilingual/master/mobile/images/flags/es.png" alt="Espanol" />
+    Espanol
+  </a>  &nbsp;  
+  <a href="#dutch"><img src="https://raw.github.com/ontech/PayPal-Mobile-Plugin-Zen-Cart-Multilingual/master/mobile/images/flags/nl.png" alt="Dutch" />
+    Dutch
+  </a> 
+</h4> 
+
+<a name="dutch">Dutch</a>
+-------
+Installatie-instructies voor de plug-in voor PayPal Mobiel
+==============================================
+<sup> Met technologie van [ezimerchant](http://ezimerchant.com/)</sup><br>
+ <sup>Instructies voor OsCommerce 2.2+</sup>
+
+
+1. Installeer de PayPal-plug-in Express Checkout voor OsCommerce als u dat nog niet gedaan heeft. <a href="https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/library_plugins_oscommerce">Paypal OsCommercce Express Checkout</a>
+
+1. Klik op de knop 'ZIP' boven aan deze pagina om de plug-in te downloaden.
+
+2. Als u PayPal Express Checkout nog niet in uw installatie van OsCommerce heeft ingesteld, volgt u onderstaande instructies. Als PayPal Express Checkout al is ingesteld, gaat u verder met stap 3:
+    + a. Log in op uw PayPal-rekening
+    + b. Klik op het tabblad 'Mijn rekening' op 'Profiel'
+    + c. Klik in het gedeelte 'Rekeninggegevens' op de link 'API-referenties aanvragen' of 'API-toegang'.
+    + d. Klik in het volgende scherm bij Optie 2 op 'Bekijk API-handtekening' of 'API-referenties aanvragen'. U moet misschien op 'Akkoord en verzenden' klikken
+    + e. Deze gegevens gebruikt u op de pagina waar u de API-referenties in OsCommerce invult. Op de pagina moet de API-gebruikersnaam, het API-wachtwoord en de API-handtekening te zien zijn.
+    + f. Log in bij OsCommerce
+    + g. Ga naar Modules (Modules) -> Payment (Betaling) en klik op PayPal Express checkout.
+    + h. Gebruik de gegevens uit stap 2e en vul ze in door te kopiëren en plakken. 
+    + i. Klik op Save (Opslaan).
+
+3. Unzip de plug-in en pak de inhoud uit in de catalogusmap van uw webserverdirectory. mobile.php bevindt zich in de catalogusmap; de map 'mobile' is een subdirectory van de catalogusmap. Als u het zip-bestand uitpakt, wordt er een directory voor de bestanden met de naam 'PayPal-Mobile-Plugin-OsCommerce' of een soortgelijke naam gemaakt. U moet de bestanden uit deze directory naar de catalogusmap verplaatsen.
+
+4. Maak een back-upkopie van uw huidige .htaccess-bestand in uw openbare hostingdirectory, als u die heeft.
+
+5. Voeg het bestand mobile.htaccess samen met uw bestaande .htaccess-bestand (als u al een dergelijk bestand heeft). Dit bestand detecteert de agent voor mobiele gebruikers. 
+   Opmerking: u moet "RewriteBase /catalog_folder/" toevoegen (waarbij catalog_folder het volledige bestandspad vanaf de hoofddirectory op de webserver naar uw webwinkel is) als uw installatie van OsCommerce zich niet in de hoofddirectory van de webserver bevindt.
+
+6. Controleer vanaf uw desktopcomputer of de website nog steeds goed functioneert.
+
+7. Controleer de website op uw telefoon en test de transactiestroom.
+
+
+Instructies om de installatie ongedaan te maken
+--------------------------------
+
+1. Verwijder de wijzigingen die u in het bestand .htaccess heeft aangebracht. Of gebruik de back-upkopie van .htaccess om de wijzigingen te overschrijven. Hierdoor wordt de eerdere functionaliteit automatisch hersteld.
+
+Ondersteunde en geteste versies
+-------------------
+OsCommerce: 2.3.1, 2.2 (rc1, rc2, rc2a)
+
+### Optionele stappen
+
+
+2. Verwijder het bestand mobile.php uit de hoofddirectory van uw openbare hostingdirectory.
+
+3. Verwijder de eerder upgeloade 'mobile'-subdirectory.
+
+
+<a name="espanol">Spanish</a>
+-------
+Instrucciones de instalación del complemento de PayPal móvil
+==============================================
+<sup> Con tecnología [ezimerchant](http://ezimerchant.com/)</sup><br>
+ <sup>Instrucciones de OsCommerce 2.2+</sup>
+
+
+1. Instale el complemento de Pago exprés de PayPal para OsCommerce si aún no lo ha hecho. <a href="https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/library_plugins_oscommerce">Paypal OsCommercce Express Checkout</a>
+
+1. Haga clic en el botón 'ZIP' de la parte superior de la página para descargar el complemento.
+
+2. Si aún no ha configurado Pago exprés de PayPal en su instalación de OsCommerce, siga estas instrucciones; si ya lo ha hecho, vaya directamente al paso 3:
+    + a. Inicie sesión en su cuenta PayPal.
+    + b. En la pestaña 'Mi cuenta', haga clic en 'Perfil'.
+    + c. En la sección 'Información de cuenta', haga clic en el vínculo 'Solicitar credenciales de API' o 'Acceso de API'.
+    + d. Bajo la opción 2 de la pantalla siguiente, haga clic en 'Ver firma de API' o 'Solicitar credenciales de API'. Es posible que deba hacer clic en 'Aceptar y enviar'.
+    + e. Usará estos detalles de la página para cumplimentar las credenciales de API en OsCommerce. Debería ver un nombre de usuario de API, una contraseña de API y una firma.
+    + f. Inicie sesión en OsCommerce.
+    + g. Vaya a Módulos -> Pago y haga clic en Pago exprés de PayPal.
+    + h. Use los datos del paso 2e. (cópielos y péguelos).
+    + i. Pulse Guardar.
+
+3. Descomprima el contenido del complemento en la carpeta catalog del directorio de su servidor web. mobile.php aparecerá en el directorio catalog y la carpeta 'mobile' será un subdirectorio dentro de este. Cuando descomprima el archivo ZIP, creará un directorio para los archivos con un nombre similar a este: "PayPal-Mobile-Plugin-OsCommerce". Deberá trasladar los archivos desde este directorio al directorio del catálogo.
+
+4. Haga una copia de seguridad de su archivo .htaccess actual en su directorio de alojamiento público, si lo tiene.
+
+5. Fusione el archivo mobile.htaccess con su archivo .htaccess existente (si ya tiene uno). Contiene la detección del agente de usuarios de móvil. 
+   Nota: tendrá que añadir "RewriteBase /carpeta_catalog/" (donde carpeta_catalog es la ruta completa desde webroot a su tienda) si su instalación de oscommerce no se encuentra en el directorio raíz del servidor web.
+
+6. Compruebe que el sitio sigue funcionando en su ordenador de escritorio.
+
+7. Consulte el sitio en su teléfono y pruebe el flujo de transacciones.
+
+
+Instrucciones para cancelar la instalación
+--------------------------------
+
+1. Elimine los cambios que realizó en el archivo .htacess. Alternativamente, use la copia de seguridad de .htaccess para sobrescribir los cambios. Esto debería restaurar la funcionalidad anterior.
+
+Versiones admitidas y verificadas
+-------------------
+OsCommerce: 2.3.1, 2.2 (rc1,rc2,rc2a)
+
+### Pasos opcionales
+
+
+2. Elimine el archivo mobile.php de la carpeta raíz de su directorio de alojamiento público.
+
+3. Elimine el subdirectorio móvil cargado anteriormente.
+
+
+
+<a name="italian">Italian</a>
+-------
+Istruzioni per installazione plugin PayPal Mobile
+==============================================
+<sup> Powered by [ezimerchant](http://ezimerchant.com/)</sup><br>
+ <sup>OsCommerce 2.2+ istruzioni</sup>
+
+
+1. Install the <a href="https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/library_plugins_oscommerce">Paypal OsCommercce Express Checkout</a> plugin if you do not already have it.
+
+1. Se non l'hai ancora fatto, installa il plugin Pagamento express OsCommerce PayPal Clicca il pulsante "ZIP" nella parte superiore della pagina per scaricare il plugin.
+
+2. Se non hai ancora installato il Pagamento express PayPal nell'installazione OsCommerce, segui queste istruzioni. Se l'hai già installato, passa al punto 3:
+    + a. Accedi al tuo conto PayPal
+    + b. Nella sezione Il mio conto, clicca Profilo
+    + c. Nella sezione Dati del conto, clicca il link Richiedi credenziali API o Accesso API.
+    + d. All'opzione 2 della pagina successiva, clicca Vedi firma API o Richiedi credenziali API. Potrebbe essere necessario cliccare Accetta e invia
+    + e. Userai i dati della pagina per completare le credenziali API in OsCommerce. Dovresti vedere il nome utente API, la password API e la firma.
+    + f. Accedi a OsCommerce
+    + g. Vai su Moduli-> Pagamento e clicca Pagamento express PayPal.
+    + h. Usa i dati del passaggio 2e copiandoli e incollandoli.
+    + i. Clicca Salva.
+
+3. Decomprimi i contenuti del plugin e salvali nella cartella catalogo della tua directory. mobile.php si troverà nella directory del catalogo, mentre la cartella "mobile" sarà una sottodirectory all'interno della cartella catalogo. Estraendo i file zippati, verrà creata una directory per i file il cui nome sarà analogo a PayPal-Mobile-Plugin-OsCommerce. Devi spostare i file da questa directory all'interno della directory del catalogo.
+
+4. Fai una copia di backup del file .htaccess attuale all'interno della directory di hosting pubblica, se presente.
+
+5. Unisci il file mobile.htaccess al file .htaccess presente (se disponibile). Contiene l'identificazione dell'agente utente mobile. 
+   Nota: dovrai aggiungere RewriteBase/catalog_folder/ (dove catalog_folder rappresenta il percorso completo dalla radice web al negozio) se il file di installazione di OsCommerce non si trova nella directory principale del server.
+
+6. Controlla che il sito sia ancora in funzione sul tuo desktop.
+
+7. Controlla il sito sul tuo telefono e testa il flusso di transazione.
+
+
+Istruzioni per annullamento installazione
+--------------------------------
+
+1. Rimuovi le modifiche al file .htacess creato, oppure usa il file .htaccess di backup per sovrascrivere le modifiche. Questa operazione dovrebbe ripristinare le funzionalità precedenti.
+
+Versioni supportate e testate
+-------------------
+OsCommerce: 2.3.1, 2.2 (rc1,rc2,rc2a)
+
+### Passaggi opzionali
+
+
+2. Rimuovi il file mobile.php nella radice della directory di hosting pubblica.
+
+3. Rimuovi la sottodirectory mobile caricata in precedenza.
+
+
 
 <a name="french">Français</a>
 ------
