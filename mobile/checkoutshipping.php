@@ -140,7 +140,7 @@ if (!tep_session_is_registered('shipping') || ( tep_session_is_registered('shipp
 
 require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_SHIPPING);
 ?>
-<?php include 'header_cart.php'; ?>
+<?php $is_cart_page=true; include 'header.php'; ?>
 
 <style>
     table.reviewaddresses td{

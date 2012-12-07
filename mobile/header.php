@@ -13,13 +13,13 @@
 		}
 
 		var language = { 
-			code: "<?php echo $_SESSION['languages_code'] ?>",
-			id: "<?php echo $_SESSION['languages_id'] ?>",
-			language: "<?php echo $_SESSION['language'] ?>",
-			paypal: "<?php echo $_SESSION['PaypalLanguages']['language'] ?>",
+			code: "<?php echo $GLOBALS['language_pp']['code'] ?>",
+			id: "<?php echo $GLOBALS['language_pp']['languages_id'] ?>",
+			language: "<?php echo $GLOBALS['language_pp']['name'] ?>",
+			paypal: "<?php echo $GLOBALS['PaypalLanguages']['language'] ?>",
 		};
-		language.checkoutWithPaypal = "<?php echo $_SESSION['PaypalLanguages']['checkoutWithPaypal'] ?>";
-		language.checkoutWithPaypalDown = "<?php echo $_SESSION['PaypalLanguages']['checkoutWithPaypalDown'] ?>";
+		language.checkoutWithPaypal = "<?php echo $GLOBALS['PaypalLanguages']['checkoutWithPaypal'] ?>";
+		language.checkoutWithPaypalDown = "<?php echo $GLOBALS['PaypalLanguages']['checkoutWithPaypalDown'] ?>";
 	</script>
 
 	<script src="mobile/js/jquery-1.6.2.min.js"></script>
@@ -38,12 +38,26 @@
 </head>
 
 <body class="{documentclass}" id="{documentid}">
+<?php if(isset($is_cart_page)) : ?>
+    <div id="mainpage" style="background-color:#ECF2F9;min-height:1000px">
 
+	<div align="center" id="checkouthead">	
+        <div id="merchant">
+          <b><?php echo STORE_NAME; ?></b>
+        </div>
+        <div id="exit">
+             <a href="<?php echo DIR_WS_CATALOG ?>"><div class="nav"></div></a>
+        </div>				
+	</div><!-- /header -->	
+
+	<div id="content" data-role="content">	
+  <div class="segment"></div>
+<?php else : ?>
 <div id="mainpage" data-role="page" data-theme="b">
 
 	<div data-role="header" data-theme="b" style="background:#fff; z-index: 1000;">
-<a href="" data-role="none" data-inline="true"><img src="images/store_logo.png"
-style="vertical-align: top; margin-top: -4px; margin-left: -2px; max-height: 45px; max-width: 200px;"/></a>
+        <a href="" data-role="none" data-inline="true"><img src="images/store_logo.png"
+        style="vertical-align: top; margin-top: -4px; margin-left: -2px; max-height: 45px; max-width: 200px;"/></a>
 		<h1></h1>
 		<a href="#" data-role="none"><img src="mobile/images/napaypal.png" style="width: 70px; margin-top: 2px;"/></a>
 			
@@ -59,3 +73,4 @@ style="vertical-align: top; margin-top: -4px; margin-left: -2px; max-height: 45p
 
 	<div id="content" data-role="content">	
 
+<?php endif; ?>

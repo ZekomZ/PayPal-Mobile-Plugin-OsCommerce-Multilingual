@@ -1,14 +1,8 @@
 <?php
-	# For english, you may ignore the following section.
-	# Pour localiser le module en fran�ais il faut modifier le fichier mobile.php en param�trant les variables suivantes 
-	# Anglais : $defaults = array('languages_code' => 'en');
-	# Fran�ais : $defaults = array('languages_code' => 'fr');
-	# la variable languages_id doit correspondre � l�identifiant de la langue fran�aise dans votre installation d�oscommerce.
-	$defaults = array( 'languages_code' => 'en' );
-	$_GET['language'] = $defaults['languages_code'];
         $catalog_path = "";
         
-	ini_set('display_errors', 'off');
+	ini_set('display_errors', 'on');
+	error_reporting(E_ALL);
 	
 	if(isset($_GET["main_page"]) && $_GET["main_page"] == "login")
 	{
@@ -23,7 +17,6 @@
 	require('includes/database_tables.php');
 	tep_session_unregister('navigation');
         header("Content-type: text/html; charset=".strtolower(CHARSET), true);
-
 	if(defined("PROJECT_VERSION"))
 	{
 			preg_match("/\d+\.?\d+/",PROJECT_VERSION, $matches);
@@ -146,26 +139,20 @@
 		  echo 'ext/modules/payment/paypal/express.php';
 	}
 	
-	
-	$_SESSION = array_merge($defaults, $_SESSION);
-	include("mobile/language_".$_SESSION['languages_code'] .".php");
-	$lang = (tep_db_fetch_array(tep_db_query("SELECT languages_id, directory FROM " . TABLE_LANGUAGES . " WHERE code='".$_SESSION['languages_code']."'")));
-	$defaults['language'] = $lang['directory'];
-	$defaults['languages_id'] = $lang['languages_id'];
-	$_SESSION = array_merge($defaults, $_SESSION);
-
-	function get_paypalLanguages(){ 
+        $lang_id = isset($lng->language['id'])?$lng->language['id']:$_SESSION['languages_id'];
+	$lang = tep_db_fetch_array(tep_db_query("SELECT * FROM " . TABLE_LANGUAGES . " WHERE languages_id=". $lang_id));
+	include("mobile/language_".$lang['code'] .".php");
+	function get_paypalLanguages($lang){ 
 		$l = array();
-		$l['language'] = $_SESSION['languages_code'] . "_" . strtoupper($_SESSION['languages_code']);
-		
+		$l['language'] = $lang['code'] . "_" . strtoupper($lang['code']);
 		$l['checkoutWithPaypal'] = "mobile/images/" . $l['language'] . "/" . $l['language'].".png";
 		$l['checkoutWithPaypalDown'] = "mobile/images/" . $l['language']. "/" . $l['language']."_pressed.png";
 		
 		return $l;
 	}
-	$_SESSION['PaypalLanguages'] = get_paypalLanguages();
+	$GLOBALS['PaypalLanguages'] = get_paypalLanguages($lang);
+	$GLOBALS['language_pp']=$lang;
 	$_SESSION['paypal_ec_markflow'] = 1;
-
 	global $bm_categories, $tree;
 	$bm_categories = new bm_categories();
 	$bm_categories->getData();
