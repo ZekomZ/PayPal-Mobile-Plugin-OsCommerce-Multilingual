@@ -35,7 +35,7 @@ $_['Continue Shopping'] = "Doorgaan met winkelen";
 $_['clear text'] = "tekst wissen";
 $_['Return to Desktop site']  = "Terug naar website voor desktopcomputers";
 $_['Search Results'] = "Zoekresultaten"; 
-$_['Add to Cart'] = "Toevoegen aan winkelwagentje";
+$_['Add to Cart'] = "In Winkelwagen";//"Toevoegen aan winkelwagentje";
 $_['Update Cart'] = "Winkelwagentje bijwerken";
 
 
