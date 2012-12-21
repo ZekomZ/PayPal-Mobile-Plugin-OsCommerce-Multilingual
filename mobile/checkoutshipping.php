@@ -141,7 +141,7 @@ if (!tep_session_is_registered('shipping') || ( tep_session_is_registered('shipp
 require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_SHIPPING);
 ?>
 <?php $is_cart_page=true; include 'header.php'; ?>
-
+<link rel="stylesheet" type="text/css" href="mobile/css/style_shipping.css" />
 <style>
     table.reviewaddresses td{
         text-align:left;

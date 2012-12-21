@@ -127,7 +127,7 @@
 	}
 	else //oscommerce 2.3+
 	{
-		define("SHIPPING_SELECTOR", "off"); //on / off
+		define("SHIPPING_SELECTOR", "on"); //on / off
 		require('includes/modules/boxes/bm_categories.php');
 		define("IPN_HANDLER", "ipn_main_handler.php");
 	}
