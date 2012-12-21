@@ -13,8 +13,8 @@
 
 	<div id="PayPalExpressCheckout">
 	<a rel="external" href="<?php get_expressURL()  ?>">
-		    <img id="paypalbutton" src="<?php echo $_SESSION['PaypalLanguages']['checkoutWithPaypal'] ?>" />
-		    <img style="display:none;" src="<?php echo $_SESSION['PaypalLanguages']['checkoutWithPaypalDown'] ?>" />
+		    <img id="paypalbutton" src="<?php echo $GLOBALS['PaypalLanguages']['checkoutWithPaypal'] ?>" />
+		    <img style="display:none;" src="<?php echo $GLOBALS['PaypalLanguages']['checkoutWithPaypalDown'] ?>" />
     </a>
     </div>
 	
